@@ -1,5 +1,5 @@
 ### 做单层跳板机跳转
-1. 项目拉下来之后在根目录下创建一个gw.ini文件
+1. 项目拉下来之后在根目录下创建一个gw.ini文件（内容可以和gwDemo.ini一样）
 2. 将yzgw.sh加入到alias中
 如：alias yzgw="~/learn/AutoShell/yzgw.sh"
 3. 脚本运行demo
@@ -13,33 +13,4 @@
 4.3. 将命令组合后发送到跳板机
 
 #### gw.ini文件格式
-``
-[runMode]
-daily=qagw
-qa=qagw
-pre=gw
-prod=gw
-[/runMode]
-
-[gw]
-0=spawn /usr/bin/ssh -A huangyi@login1.qima-inc.com
-1=spawn /usr/bin/ssh -A huangyi@login2.qima-inc.com
-[/gw]
-
-[qagw]
-0=spawn /usr/bin/ssh -A huangyi@login1.qa.qima-inc.com
-1=spawn /usr/bin/ssh -A huangyi@login2.qa.qima-inc.com
-[/qagw]
-
-[machine]
-[daily]
-[/daily]
-[qa]
-schedule=qabb-qa-schedule-service
-[/qa]
-[pre]
-[/pre]
-[prod]
-[/prod]
-[/machine]
-``
+看gwDemo.ini文件
