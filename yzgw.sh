@@ -4,6 +4,7 @@ if {$argc < 2} {
     exit
 }
 
+set timeout 5
 # 设置关键文件
 proc file2folder {file} {
     set splitIndex [string last / $file]
@@ -31,7 +32,7 @@ set gwName [Config::getGwName $configFile $envName]
 set randNum [expr {int (rand() * 2)}]
 set tmpCommand [Config::getGwCommand $configFile $gwName $randNum]
 if {![Config::compareStr tmpCommand ""]} {
-    eval $tmpCommand
+    eval "spawn $tmpCommand"
 } else {
     send_user "没有这种环境配置:$envName:$gwName"
     exit
