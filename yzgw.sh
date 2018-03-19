@@ -10,9 +10,9 @@ proc file2folder {file} {
     return [string range $file 0 [expr $splitIndex - 1]]
 }
 set fileDir [file2folder $argv0]
-set configFile "$fileDir/gw.ini"
+set configFile "$fileDir/yzgw.ini"
 
-lappend auto_path "$fileDir"
+lappend auto_path "$fileDir/"
 package require Config 1.0
 
 # 初始化参数
@@ -24,7 +24,7 @@ if {$machineIndex == ""} {
 }
 
 send_user "环境为：$envName\n"
-send_user "机器名：$machineName\n"
+send_user "应用名：$machineName\n"
 send_user "机器编号：$machineIndex\n"
 
 set gwName [Config::getGwName $configFile $envName]
@@ -38,5 +38,6 @@ if {![Config::compareStr tmpCommand ""]} {
 }
 set tmpMachine [Config::getMachineName $configFile $envName $machineName]
 set tmpMachineCommand "i $tmpMachine$machineIndex\n"
+
 send $tmpMachineCommand
 interact

@@ -1,5 +1,5 @@
 ### 做单层跳板机跳转
-1. 项目拉下来之后在根目录下创建一个gw.ini文件（内容格式和gwDemo.ini一样）
+1. 项目拉下来之后在根目录下创建一个yzgw.ini文件（内容格式和gwDemo.ini一样）
 2. 将yzgw.sh加入到alias中
 如：alias yzgw="~/learn/AutoShell/yzgw.sh"
 3. 脚本运行demo
@@ -12,5 +12,5 @@
 - 根据应用名获取在跳板机执行的命令
 - 将命令组合后发送到跳板机
 
-#### gw.ini文件格式
+#### yzgw.ini文件格式
 看gwDemo.ini文件
