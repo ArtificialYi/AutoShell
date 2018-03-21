@@ -61,7 +61,7 @@ namespace eval Config {
                     }
                     "kv" {
                         set currentKey [parseKv2Key $line]
-                        if {$key == $currentKey} {
+                        if {$key == $currentKey && [compareStack $tmpCurrentStack $targetStack]} {
                             set currentValue [parseKv2Value $line]
                             break
                         }
