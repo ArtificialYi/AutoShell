@@ -60,10 +60,12 @@ namespace eval Config {
                         set flag 1
                     }
                     "kv" {
-                        set currentKey [parseKv2Key $line]
-                        if {$key == $currentKey && [compareStack $tmpCurrentStack $targetStack]} {
-                            set currentValue [parseKv2Value $line]
-                            break
+                        if {[compareStack $tmpCurrentStack $targetStack]} {
+                            set currentKey [parseKv2Key $line]
+                            if {$key == $currentKey} {
+                                set currentValue [parseKv2Value $line]
+                                break
+                            }
                         }
                     }
                     default {
