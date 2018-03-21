@@ -38,7 +38,7 @@ if {![Config::compareStr tmpCommand ""]} {
     exit
 }
 set tmpMachine [Config::getMachineName $configFile $envName $machineName]
-if {![Config::compareStr tmpMachine ""]} {
+if {[Config::compareStr tmpMachine ""]} {
     send "exit\n"
     expect "logout"
     send_user "请在yzgw.ini文件中配置环境、应用和对应的机器名\n"
